@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Coded Website</title>
+    <style>
+        /* CSS Reset & Core Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1abc9c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1abc9c, #2c3e50);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Features Section Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoint for Mobile */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.75rem;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <h1>DevSpace</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero" id="home">
+        <h2>Welcome to Your New Website</h2>
+        <p>Built completely from scratch using clean HTML, CSS, and modern JavaScript layout principles.</p>
+        <button class="btn" id="actionBtn">Click to Interact</button>
+    </section>
+
+    <!-- Features Section -->
+    <main class="container" id="features">
+        <div class="features">
+            <div class="card">
+                <h3>1. HTML Structure</h3>
+                <p>The skeleton of the site. It uses semantic tags like header, nav, main, and footer to define elements clearly.</p>
+            </div>
+            <div class="card">
+                <h3>2. CSS Styling</h3>
+                <p>The skin and clothing. It creates a responsive layout grid, sets cohesive typography, and applies subtle hover animations.</p>
+            </div>
+            <div class="card">
+                <h3>3. JavaScript Logic</h3>
+                <p>The muscles and brains. It handles real-time visual modifications and reacts dynamically to user events.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 DevSpace. Handcrafted with clean code.</p>
+    </footer>
+
+    <!-- JavaScript Interactive Functionality -->
+    <script>
+        // Select the button element by its Unique ID
+        const button = document.getElementById('actionBtn');
+
+        // Add a click event listener to run a function when the button is clicked
+        button.addEventListener('click', () => {
+            // Generate a random background hex color
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            
+            // Apply the color directly to the hero section background styling
+            const heroSection = document.querySelector('.hero');
+            heroSection.style.background = randomColor;
+            
+            // Provide feedback text inside the button
+            button.textContent = "Color Changed!";
+            setTimeout(() => {
+                button.textContent = "Click to Interact";
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
